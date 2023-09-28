@@ -13,12 +13,15 @@ body, html {
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 14px 234px;
+    padding: 14px 160px; /* Adjust padding as needed */
     font-size: 17px;
-    width: 100%; /* Set the width to 100% to fill the container */
+    width: auto; /* Allow the width to be determined by content */
     text-align: center; /* Center the text horizontally */
     box-sizing: content-box; /* Ensure padding and border don't affect width */
-  }
+    display: inline-block; /* Display as inline-block to prevent full width */
+    position: relative; /* Relative positioning for dropdown */
+}
+
   
   .tablink:hover {
     background-color: #747474e7;

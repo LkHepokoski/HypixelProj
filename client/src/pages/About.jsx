@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import '../styles/home.css'
-const Home = () => {
-  const [showDropdown, setShowDropdown] = useState(false);
+import '../styles/floors.css';
+
+
+const About = () => {
+    const [showDropdown, setShowDropdown] = useState(false);
 
     const toggleDropdown = () => {
         setShowDropdown(!showDropdown);
     };
-  
-  return (
-    <div>
+
+    return (
+        <div>
             <nav>
                 <Link to="/home" className="tablink">Home</Link>
                 <Link to="/items" className="tablink">Items</Link>
@@ -61,6 +63,6 @@ const Home = () => {
             
         </div>
     );
-};
+}
 
-export default Home;
+export default About;

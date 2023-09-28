@@ -1,0 +1,22 @@
+ 
+  /* Style for the data table */
+  #data-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  #data-table th {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  #data-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+  }
+  
+  /* Additional styles can be added as needed */
+  

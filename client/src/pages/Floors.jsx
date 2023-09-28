@@ -1,21 +1,32 @@
 import React, { useState } from "react";
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import '../styles/home.css'
-const Home = () => {
-  const [showDropdown, setShowDropdown] = useState(false);
+import '../styles/floors.css';
+
+const Floors = () => {
+    const [showDropdown, setShowDropdown] = useState(false);
 
     const toggleDropdown = () => {
         setShowDropdown(!showDropdown);
     };
-  
-  return (
-    <div>
+
+    return (
+        <div>
             <nav>
                 <Link to="/home" className="tablink">Home</Link>
                 <Link to="/items" className="tablink">Items</Link>
-                
+
                 {/* Floors Tab */}
-                <div className="tablink" onClick={toggleDropdown}>
+                <div
+                    className={`tablink ${showDropdown ? 'active' : ''}`}
+                    onMouseEnter={toggleDropdown}
+                    onMouseLeave={toggleDropdown}
+                    onClick={() => {
+                        if (!showDropdown) {
+                            // Navigate to the "floors" page when clicked only if the dropdown is not showing
+                            window.location.href = "/floors";
+                        }
+                    }}
+                >
                     Floors
                     {showDropdown && (
                         <div className="dropdown-content">
@@ -58,9 +69,9 @@ const Home = () => {
                     <h3>About</h3>
                 </div>} />
             </Routes>
-            
+
         </div>
     );
-};
+}
 
-export default Home;
+export default Floors;

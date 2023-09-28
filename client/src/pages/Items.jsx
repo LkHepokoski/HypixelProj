@@ -1,15 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import '../styles/home.css'
-const Home = () => {
+import '../styles/items.css';
+
+
+const Items = () => {
   const [showDropdown, setShowDropdown] = useState(false);
 
-    const toggleDropdown = () => {
-        setShowDropdown(!showDropdown);
-    };
-  
-  return (
-    <div>
+  const toggleDropdown = () => {
+      setShowDropdown(!showDropdown);
+  };
+  const [items, setItems] = useState([]);
+/*
+  useEffect(() => {
+    axios.get("http://localhost:8800/items") // Replace with your backend URL
+      .then((response) => {
+        setItems(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+  */
+
+        return (
+          <div>
             <nav>
                 <Link to="/home" className="tablink">Home</Link>
                 <Link to="/items" className="tablink">Items</Link>
@@ -59,8 +73,29 @@ const Home = () => {
                 </div>} />
             </Routes>
             
-        </div>
-    );
-};
+              <table id="data-table">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Buy Price</th>
+                        <th>Sell Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+          {items.map((item, index) => (
+            <tr key={index}>
+              <td>{item.item_name}</td>
+              <td>{item.buy_price}</td>
+              <td>{item.sell_price}</td>
+            </tr>
+          ))}
+        </tbody>
+                    </table>
+                 </div>
+                 
+          );
+        };
+            
+        
 
-export default Home;
+export default Items
