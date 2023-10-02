@@ -9,12 +9,14 @@ import Floors from "./pages/Floors";
 import S from "./pages/S";
 import NonS from "./pages/NonS";
 import About from "./pages/About";
+import Navbar from "./components/navbar";
 
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <Navbar />
         <Routes>
           <Route path="/home" element={<Home/>}/>
           <Route path='/items' element={<Items />} />

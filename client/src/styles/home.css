@@ -9,11 +9,10 @@ body, html {
   .tablink {
     background-color: #2c2c2c;
     color: rgb(255, 255, 255);
-    float: none; /* Remove the float property */
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 14px 160px; /* Adjust padding as needed */
+    padding: 12px 163px; /* Adjust padding as needed */
     font-size: 17px;
     width: auto; /* Allow the width to be determined by content */
     text-align: center; /* Center the text horizontally */
