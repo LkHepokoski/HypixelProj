@@ -1,47 +1,21 @@
-/* Style for the dropdown content */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #2c2c2c;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+#nons-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
 }
 
-.tablink:hover .dropdown-content {
-  display: block;
-}
-
-/* Style the subtab links within the dropdown */
-.subtablink {
+#nons-table th {
+  background-color: #333;
   color: white;
-  padding: 12px 18px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
+  padding: 10px;
+  text-align: center;
 }
 
-.subtablink:hover {
-  background-color: #747474e7;
+#nons-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  width: 2%; /* Adjust the width as needed */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing content */
+  text-overflow: ellipsis; /* Show ellipsis for long text */
 }
-
-  /* Style for the data table */
-  #data-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 20px;
-  }
-  
-  #data-table th {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  #data-table td {
-    border: 1px solid #ccc;
-    padding: 8px;
-  }
-  
-  /* Additional styles can be added as needed */
-  

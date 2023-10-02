@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import '../styles/items.css';
-
+import axios from "axios";
 
 const Items = () => {
   const [items, setItems] = useState([]);
-/*
+
+
+
   useEffect(() => {
     axios.get("http://localhost:8800/items") // Replace with your backend URL
       .then((response) => {
@@ -15,11 +17,11 @@ const Items = () => {
         console.error("Error fetching data:", error);
       });
   }, []);
-  */
+
 
         return (
           <div>
-
+              <h1 style={{ textAlign: "center" }}>Items</h1>
               <table id="data-table">
                 <thead>
                     <tr>
