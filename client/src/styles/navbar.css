@@ -47,3 +47,8 @@
 .subtablink:hover {
     background-color: #747474e7;
 } 
+
+.split-tab {
+    color: #ffffff;; /* Change to your desired color */
+    /* Other styling properties if needed */
+  }

@@ -5,12 +5,8 @@ import '../styles/navbar.css';
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const handleMouseEnter = () => {
-    setShowDropdown(true);
-  };
-
-  const handleMouseLeave = () => {
-    setShowDropdown(false);
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
   };
 
   return (
@@ -25,11 +21,11 @@ const Navbar = () => {
 
         {/* Floors Tab */}
         <div
-          className="tablink"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          className={`tablink split-dropdown ${showDropdown ? 'active' : ''}`}
+          onMouseClick={toggleDropdown}
+          
         >
-          Floors
+          <Link to="/floors" className="split-tab">Floors</Link>
           {showDropdown && (
             <div className="dropdown-content">
               <Link to="/floors/s" className="subtablink">
@@ -51,3 +47,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+  

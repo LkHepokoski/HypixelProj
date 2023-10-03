@@ -6,30 +6,3 @@
   padding: 0px;
   margin-bottom: 0px; /* Add margin between tables */
 }
-
-/* Style the tables  */
-#home-table,
-#floordiff-table{
-    border-collapse: collapse;
-    width: 105%; /* Adjust the width as needed for each table */
-    margin-top: 20px;
-}
-
-#home-table th,
-#floordiff-table th {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    text-align: center;
-}
-
-#home-table td,
-#floordiff-table td{
-    border: 1px solid #ccc;
-    padding: 8px;
-    width: 20%; /* Adjust the width as needed */
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide overflowing content */
-    text-overflow: ellipsis; /* Show ellipsis for long text */
-    text-align: center; /* Center text horizontally */
-}

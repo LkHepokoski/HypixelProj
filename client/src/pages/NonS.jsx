@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import '../styles/nons.css';
+import axios from "axios";
 
 
 const NonS = () => {
