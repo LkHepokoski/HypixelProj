@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import '../styles/navbar.css';
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
+  const handleMouseEnter = () => {
+    setShowDropdown(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowDropdown(false);
   };
 
   return (
@@ -19,7 +24,11 @@ const Navbar = () => {
         </Link>
 
         {/* Floors Tab */}
-        <div className="tablink" onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
+        <div
+          className="tablink"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
           Floors
           {showDropdown && (
             <div className="dropdown-content">
