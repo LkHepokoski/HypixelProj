@@ -22,7 +22,9 @@ const Navbar = () => {
         {/* Floors Tab */}
         <div
           className={`tablink split-dropdown ${showDropdown ? 'active' : ''}`}
-          onMouseClick={toggleDropdown}
+          onMouseEnter={toggleDropdown}
+          onMouseLeave={toggleDropdown} // Close dropdown when mouse leaves
+  
           
         >
           <Link to="/floors" className="split-tab">Floors</Link>
