@@ -62,7 +62,7 @@ app.get('/items', (req, res) => {
 
   // Define a route to fetch data from the 'items' table
   app.get('/floors', (req, res) => {
-    const sql = 'SELECT * FROM s'; // SQL query to select data from the 'items' table
+    const sql = 'SELECT * FROM floors'; // SQL query to select data from the 'items' table
   
     // Log a debug message to indicate that the route is being accessed
     console.log('Fetching data from the "floors" table...');
@@ -129,7 +129,7 @@ app.get('/nons', (req, res) => {
   const sql = 'SELECT * FROM nons'; // SQL query to select data from the 'items' table
 
   // Log a debug message to indicate that the route is being accessed
-  console.log('Fetching data from the "items" table...');
+  console.log('Fetching data from the "nons" table...');
 
   db.query(sql, (err, results) => {
     if (err) {
