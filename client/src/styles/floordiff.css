@@ -1,0 +1,25 @@
+
+#floordiff-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    max-height: 400px; /* Adjust the height as needed */
+    overflow: auto; /* Add scrollbars if content overflows */
+  }
+  
+  #floordiff-table th {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  #floordiff-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    width: 2%; /* Adjust the width as needed */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowing content */
+    text-overflow: ellipsis; /* Show ellipsis for long text */
+  }
+  

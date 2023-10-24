@@ -10,6 +10,7 @@ import S from "./pages/S";
 import NonS from "./pages/NonS";
 import About from "./pages/About";
 import Navbar from "./components/navbar";
+import FloorDiff from "./pages/FloorDiff";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path='/floors' element={<Floors />} />
           <Route path='/floors/s' element={<S />} />
           <Route path='/floors/nons' element={<NonS />} />
+          <Route path='/floors/floordiff' element={<FloorDiff />} />
           <Route path='/*' element={<Home />} />
           <Route path="/about" element={<About />} />
         </Routes>

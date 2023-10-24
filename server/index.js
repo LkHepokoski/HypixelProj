@@ -61,11 +61,32 @@ app.get('/items', (req, res) => {
 
 
   // Define a route to fetch data from the 'items' table
-  app.get('/floors', (req, res) => {
-    const sql = 'SELECT * FROM floors'; // SQL query to select data from the 'items' table
+  app.get('/s_chance', (req, res) => {
+    const sql = 'SELECT * FROM s_chance'; // SQL query to select data from the 'items' table
   
     // Log a debug message to indicate that the route is being accessed
-    console.log('Fetching data from the "floors" table...');
+    console.log('Fetching data from the "s_chance" table...');
+  
+    db.query(sql, (err, results) => {
+      if (err) {
+        console.error('Error fetching data from MySQL:', err);
+        res.status(500).json({ error: 'Internal Server Error' });
+      } else {
+        // Log a debug message to indicate that data has been retrieved successfully
+        console.log('Data fetched successfully from the "floors" table.');
+  
+        res.json(results); // Send the data as JSON response
+      }
+    });
+  });
+  
+
+   // Define a route to fetch data from the 'items' table
+   app.get('/nons_chance', (req, res) => {
+    const sql = 'SELECT * FROM nons_chance'; // SQL query to select data from the 'items' table
+  
+    // Log a debug message to indicate that the route is being accessed
+    console.log('Fetching data from the "nons_chance" table...');
   
     db.query(sql, (err, results) => {
       if (err) {
@@ -83,7 +104,7 @@ app.get('/items', (req, res) => {
 
     // Define a route to fetch data from the 'items' table
   app.get('/floordiff', (req, res) => {
-    const sql = 'SELECT * FROM s'; // SQL query to select data from the 'items' table
+    const sql = 'SELECT * FROM floordiff'; // SQL query to select data from the 'items' table
   
     // Log a debug message to indicate that the route is being accessed
     console.log('Fetching data from the "floor diff" table...');
@@ -108,7 +129,7 @@ app.get('/items', (req, res) => {
     const sql = 'SELECT * FROM s'; // SQL query to select data from the 'items' table
   
     // Log a debug message to indicate that the route is being accessed
-    console.log('Fetching data from the "items" table...');
+    console.log('Fetching data from the "s" table...');
   
     db.query(sql, (err, results) => {
       if (err) {

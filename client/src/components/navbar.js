@@ -36,6 +36,9 @@ const Navbar = () => {
               <Link to="/floors/nons" className="subtablink">
                 NonS
               </Link>
+              <Link to="/floors/floordiff" className="subtablink">
+                FloorDiff
+              </Link>
             </div>
           )}
         </div>

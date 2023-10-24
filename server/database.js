@@ -77,8 +77,8 @@ function responseToObjects(res) {
 
 
 // S Table Insert Function
-const insertDataIntoS = (data) => {
-  const sql = 'INSERT INTO S (`floor_chest`, `profit_chance`, `prof_per_run`) VALUES (?, ?, ?)';
+const insertDataIntoSChance = (data) => {
+  const sql = 'INSERT INTO S_Chance (`floor_chest`, `profit_chance`, `prof_per_run`) VALUES (?, ?, ?)';
 
   data.forEach((rowData) => {
     // Extract data using the correct column names with spaces
@@ -100,8 +100,8 @@ const insertDataIntoS = (data) => {
 
 
 // NonS Table Insert Function
-const insertDataIntoNonS = (data) => {
-  const sql = 'INSERT INTO nons (`floor_chest`, `profit_chance`, `prof_per_run`) VALUES (?, ?, ?)';
+const insertDataIntoNonSChance = (data) => {
+  const sql = 'INSERT INTO NonS_Chance (`floor_chest`, `profit_chance`, `prof_per_run`) VALUES (?, ?, ?)';
 
   data.forEach((rowData) => {
     // Extract data using the correct column names with spaces
@@ -142,8 +142,8 @@ const insertDataIntoItems = (data) => {
 };
 
 // Floors Table Insert Function
-const insertDataIntoFloors = (data) => {
-  const sql = 'INSERT INTO floors (`floor_chest`, `floor_item`,`item_drop_chance`, `item_cost`,`market_val`, `profit`) VALUES (?, ?, ?, ?, ?, ?)';
+const insertDataIntoFloorNonS = (data) => {
+  const sql = 'INSERT INTO NonS (`floor_chest`, `floor_item`,`item_drop_chance`, `item_cost`,`market_val`, `profit`) VALUES (?, ?, ?, ?, ?, ?)';
 
   data.forEach((rowData) => {
     // Extract data using the correct column names with spaces
@@ -172,7 +172,7 @@ const insertDataIntoFloorDiff = (data) => {
     // Check if the properties exist before accessing them
     const floor_chest = rowData.hasOwnProperty('Floor/Chest ') ? rowData['Floor/Chest '].trim() : '';
     const floor_item = rowData.hasOwnProperty('Drop ') ? rowData['Drop '].trim() : '';
-    const item_drop_chance = parseFloat(rowData['Odds in % (not S+) '] || 0).toFixed(2);
+    const item_drop_chance = parseFloat(rowData['Odds in % (S+) '] || 0).toFixed(2);
     const item_cost = parseFloat(rowData['Cost from Chest '] || 0).toFixed(2);
     const market_val = parseFloat(rowData['Market Value '] || 0).toFixed(2);
     const profit = parseFloat(rowData['Profit/Loss '] || 0).toFixed(2);
@@ -188,23 +188,46 @@ const insertDataIntoFloorDiff = (data) => {
 };
 
 
-  // Fetch data for S table and insert it into the database
+// Floors Table Insert Function
+const insertDataIntoFloorS = (data) => {
+  const sql = 'INSERT INTO S (`floor_chest`, `floor_item`,`item_drop_chance`, `item_cost`,`market_val`, `profit`) VALUES (?, ?, ?, ?, ?, ?)';
+
+  data.forEach((rowData) => {
+    // Extract data using the correct column names with spaces
+    const floor_chest = rowData['Floor/Chest '].trim();
+    const floor_item = rowData['Drop '].trim();
+    const item_drop_chance = parseFloat(rowData['Odds in % (S+) ']).toFixed(2);
+    const item_cost = parseFloat(rowData['Cost from Chest ']).toFixed(2);
+    const market_val = parseFloat(rowData['Market Value ']).toFixed(2);
+    const profit = parseFloat(rowData['Profit/Loss ']).toFixed(2);
+
+    connection.query(sql, [floor_chest,floor_item, item_drop_chance, item_cost, market_val, profit], (err, results) => {
+      if (err) {
+        console.error('Error inserting data:', err);
+      } else {
+        console.log('Data inserted successfully:', results);
+      }
+    });
+  });
+};
+
+  // Fetch data for S_Chance table and insert it into the database
   getSheetData({
     sheetID: '1hoRe8GxnnNuZj6TFbxPvTzitEPY9zOizYR_U5L9dHi8',
     sheetName: 'Profit/Floor',
-    query: 'SELECT I, J, K WHERE A IS NOT NULL', // Modify this query according to your needs
+    query: 'SELECT I, J, K WHERE I IS NOT NULL', // Modify this query according to your needs
     callback: (data) => {
-      insertDataIntoS(data.slice(0)); // Specify the table insertion function here
+      insertDataIntoSChance(data.slice(0)); // Specify the table insertion function here
     },
   });
 
-  // Fetch data for NonS Table and insert it into the database
+  // Fetch data for NonS_Chance Table and insert it into the database
 getSheetData({
   sheetID: '1hoRe8GxnnNuZj6TFbxPvTzitEPY9zOizYR_U5L9dHi8',
   sheetName: 'Profit/Floor',
   query: 'SELECT A, B, C WHERE A IS NOT NULL', // Modify this query according to your needs
   callback: (data) => {
-    insertDataIntoNonS(data.slice(0)); // Specify the table insertion function here
+    insertDataIntoNonSChance(data.slice(0)); // Specify the table insertion function here
   },
 });
 
@@ -226,16 +249,28 @@ getSheetData({
   sheetName: 'Non-S+',
   query: 'SELECT A, B, C, D, E, F WHERE A IS NOT NULL', // Modify this query according to your needs
   callback: (data) => {
-    insertDataIntoFloors(data.slice(0)); // Specify the table insertion function here
+    insertDataIntoFloorNonS(data.slice(0)); // Specify the table insertion function here
     },
   });
 
 
-// Fetch data for S+ Diff table and insert it into the database
+  // Fetch data for S+ table and insert it into the database
 getSheetData({
   sheetID: '1hoRe8GxnnNuZj6TFbxPvTzitEPY9zOizYR_U5L9dHi8',
   sheetName: 'S+',
   query: 'SELECT A, B, C, D, E, F WHERE A IS NOT NULL', // Modify this query according to your needs
+  callback: (data) => {
+    insertDataIntoFloorS(data.slice(0)); // Specify the table insertion function here
+    },
+  });
+
+
+
+// Fetch data for Floor Diff table and insert it into the database
+getSheetData({
+  sheetID: '1hoRe8GxnnNuZj6TFbxPvTzitEPY9zOizYR_U5L9dHi8',
+  sheetName: 'S+',
+  query: 'SELECT A, B, C, D, E, F WHERE G IS NOT NULL', // Modify this query according to your needs
   callback: (data) => {
     insertDataIntoFloorDiff(data.slice(0));
     },

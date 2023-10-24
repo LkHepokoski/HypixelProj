@@ -2,19 +2,19 @@
 import React, { useState, useEffect } from "react";
 
 // Import CSS file for styling 
-import '../styles/nons.css';
+import '../styles/floordiff.css';
 
 // Import the Axios library for making HTTP requests
 import axios from "axios";
 
 // Define a functional component named "NonS"
-const NonS = () => {
+const FloorDiff = () => {
   // Define a state variable "floors" and its corresponding setter function
   const [floors, setFloors] = useState([]);
 
   // Use the useEffect hook to make an HTTP GET request 
   useEffect(() => {
-    axios.get("http://localhost:8800/nons")
+    axios.get("http://localhost:8800/floordiff")
       .then((response) => {
         setFloors(response.data); // Update the "floors" state with the received data
       })
@@ -26,9 +26,9 @@ const NonS = () => {
   // This is the JSX (JavaScript XML) code that represents the component's structure
   return (
     <div>
-      <h1 style={{ textAlign: "center" }}>Non-S+ Runs</h1> 
+      <h1 style={{ textAlign: "center" }}>Floor Differences</h1> 
       <div className="table-container"> {/* Apply styling to create a table container */}
-        <table id="nons-table">
+        <table id="floordiff-table">
           <thead>
             <tr>
               <th>Floor/Chest</th>
@@ -58,4 +58,4 @@ const NonS = () => {
 };
 
 // Export the "NonS" component as the default export of this module
-export default NonS;
+export default FloorDiff;
