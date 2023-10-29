@@ -7,7 +7,7 @@ import '../styles/floordiff.css';
 // Import the Axios library for making HTTP requests
 import axios from "axios";
 
-// Define a functional component named "NonS"
+// Define a functional component named "FloorDiff"
 const FloorDiff = () => {
   // Define a state variable "floors" and its corresponding setter function
   const [floors, setFloors] = useState([]);
@@ -26,8 +26,7 @@ const FloorDiff = () => {
   // This is the JSX (JavaScript XML) code that represents the component's structure
   return (
     <div>
-      <h1 style={{ textAlign: "center" }}>Floor Differences</h1> 
-      <div className="table-container"> {/* Apply styling to create a table container */}
+      <h1 style={{ textAlign: "center", color: "white" }}>Floor Differences</h1> 
         <table id="floordiff-table">
           <thead>
             <tr>
@@ -53,9 +52,9 @@ const FloorDiff = () => {
           </tbody>
         </table>
       </div>
-    </div>
+    
   );
 };
 
-// Export the "NonS" component as the default export of this module
+// Export the "FloorDiff" component as the default export of this module
 export default FloorDiff;

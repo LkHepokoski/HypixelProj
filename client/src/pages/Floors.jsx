@@ -10,14 +10,14 @@ import axios from "axios";
 // Define a functional component named "Floors"
 const Floors = () => {
   // Define state variables "nons" and "s" and their corresponding setter functions
-  const [nons, setNons] = useState([]);
+  const [nons, setNonS] = useState([]);
   const [s, setS] = useState([]);
 
   // Use the useEffect hook to make an HTTP GET request 
   useEffect(() => {
     axios.get("http://localhost:8800/nons_chance")
       .then((response) => {
-        setNons(response.data); // Update the "nons" state with the received data
+        setNonS(response.data); // Update the "nons" state with the received data
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -38,16 +38,16 @@ const Floors = () => {
   
   return (
     <div>
-      <h1 style={{ textAlign: "center" }}>Floors</h1> 
-      <div style={{ textAlign: "center" }}>
+      <h1 style={{ textAlign: "center", color: "white" }}>Floors</h1> 
+      <div style={{ textAlign: "center", color: "white" }}>
         <b>
           This website was designed to be used by Hypixel Skyblock players for their
           dungeon runs in Floors 1-7 (Master Mode not implemented yet).
         </b> 
       </div>
       <div className="table-container">
-        <div className="table-column">
-          <table id="home-table">
+        <div className="tablenons-column">
+          <table id="floordiffs-table">
             <caption>Non-S</caption> 
             <thead>
               <tr>
@@ -68,7 +68,7 @@ const Floors = () => {
           </table>
         </div>
         <div className="table-column">
-          <table id="floordiff-table"> 
+          <table id="floordiffnons-table"> 
             <caption>S+</caption> 
             <thead>
               <tr>

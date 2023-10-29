@@ -26,7 +26,7 @@ const Items = () => {
   
   return (
     <div>
-      <h1 style={{ textAlign: "center" }}>Items</h1> 
+      <h1 style={{ textAlign: "center", color: "white" }}>Items</h1>
       <table id="data-table">
         <thead>
           <tr>

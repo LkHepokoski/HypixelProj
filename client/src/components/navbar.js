@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav>
+      <nav className="navbar">
         <Link to="/home" className="tablink">
           Home
         </Link>

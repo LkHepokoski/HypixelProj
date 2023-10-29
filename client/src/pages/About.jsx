@@ -1,8 +1,5 @@
-// Import React and useState from the "react" library
-import React, { useState } from "react";
-
 // Import CSS file for styling 
-import '../styles/floors.css';
+import '../styles/about.css';
 
 // Define a functional component named "About"
 const About = () => {
@@ -10,10 +7,10 @@ const About = () => {
     // This is the JSX code that represents the component's structure
     return (
         <div>
-            <h2>
+            <h2 style = {{color: "white" }}>
                 All About Us! 
             </h2>
-            <h4>
+            <h4 style = {{color: "white"}}>
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

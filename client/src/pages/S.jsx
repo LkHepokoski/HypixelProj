@@ -7,7 +7,7 @@ import '../styles/s.css';
 // Import the Axios library for making HTTP requests
 import axios from "axios";
 
-// Define a functional component named "NonS"
+// Define a functional component named "S"
 const S = () => {
   // Define a state variable "floors" and its corresponding setter function
   const [floors, setFloors] = useState([]);
@@ -26,8 +26,7 @@ const S = () => {
   // This is the JSX (JavaScript XML) code that represents the component's structure
   return (
     <div>
-      <h1 style={{ textAlign: "center" }}>S+ Runs</h1> 
-      <div className="table-container"> {/* Apply styling to create a table container */}
+      <h1 style={{ textAlign: "center", color: "white" }}>S+ Runs</h1> 
         <table id="s-table">
           <thead>
             <tr>
@@ -53,7 +52,7 @@ const S = () => {
           </tbody>
         </table>
       </div>
-    </div>
+    
   );
 };
 

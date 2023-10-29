@@ -1,30 +1,45 @@
-.table-container {
+.table-container  {
     display: flex;
-    justify-content: space-evenly; /* Adjust as needed */
-    align-items: center;
-    border: 1px solid #ccc;
+    justify-content: center; /* Adjust as needed */
+    align-items: flex-start;
+    border: none;
     padding: 0px;
-    margin-bottom: 0px; /* Add margin between tables */
-  }
-  
+    border-width: thin;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+ 
   /* Style the tables  */
-  #home-table,
-  #floordiff-table{
+  #floordiffnons-table,
+  #floordiffs-table{
       border-collapse: collapse;
-      width: 105%; /* Adjust the width as needed for each table */
+      width: 25%; /* Adjust the width as needed for each table */
       margin-top: 20px;
+      border: 1px solid rgba(0, 0, 0, 0.2); /* Add a subtle border */
+      background-color: rgba(255, 255, 255, 0.8); /* Add transparency to the table */
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  }
+
+
+
+
+  #floordiffnons-table tbody tr:hover,
+  #floordiffs-table tbody tr:hover {
+    background-color: #f2f2f2; /* Alternate row background color for readability */
   }
   
-  #home-table th,
-  #floordiff-table th {
+  
+  #floordiffnons-table th,
+  #floordiffs-table th {
       background-color: #333;
       color: white;
       padding: 10px;
       text-align: center;
   }
   
-  #home-table td,
-  #floordiff-table td{
+  #floordiffnons-table td,
+  #floordiffs-table td{
       border: 1px solid #ccc;
       padding: 8px;
       width: 20%; /* Adjust the width as needed */

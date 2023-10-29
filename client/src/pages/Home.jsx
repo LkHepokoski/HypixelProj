@@ -1,5 +1,3 @@
-// Import React and useState from the "react" library
-import React, { useState } from "react";
 // Import CSS file for styling 
 import '../styles/home.css';
 
@@ -9,7 +7,8 @@ const Home = () => {
   // This is the JSX (JavaScript XML) code that represents the component's structure
   return (
     <div>
-      <p>
+      <p style = {{color: "white" }}>
+        
         Home!
       </p> 
     </div>

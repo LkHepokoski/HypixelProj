@@ -26,8 +26,7 @@ const NonS = () => {
   // This is the JSX (JavaScript XML) code that represents the component's structure
   return (
     <div>
-      <h1 style={{ textAlign: "center" }}>Non-S+ Runs</h1> 
-      <div className="table-container"> {/* Apply styling to create a table container */}
+      <h1 style={{ textAlign: "center", color: "white" }}>Non-S+ Runs</h1> 
         <table id="nons-table">
           <thead>
             <tr>
@@ -53,7 +52,7 @@ const NonS = () => {
           </tbody>
         </table>
       </div>
-    </div>
+    
   );
 };
 

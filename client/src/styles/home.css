@@ -1,8 +1,0 @@
-.table-container {
-  display: flex;
-  justify-content: space-evenly; /* Adjust as needed */
-  align-items: center;
-  border: 1px solid #ccc;
-  padding: 0px;
-  margin-bottom: 0px; /* Add margin between tables */
-}
