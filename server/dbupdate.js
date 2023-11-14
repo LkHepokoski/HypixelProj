@@ -98,9 +98,129 @@ const updateDataIntoItems = (data) => {
 };
 
 
+// S_Chance Table Update Function
+const updateDataIntoSChance = (data) => {
+  const updateSql = 'UPDATE S_Chance SET `profit_chance` = ?, `prof_per_run` = ? WHERE `floor_chest` = ?';
+
+  data.forEach((rowData) => {
+    const floor_chest = rowData['Floor/Chest '].trim();
+    const profit_chance = parseFloat(rowData['Profit Chance '] || 0).toFixed(2);
+    const prof_per_run = parseFloat(rowData['PPR '] || 0).toFixed(2);
+
+    console.log('Updating data:', { floor_chest, profit_chance, prof_per_run });
+
+    connection.query(updateSql, [profit_chance, prof_per_run, floor_chest], (err, results) => {
+      if (err) {
+        console.error('Error updating data:', err);
+      } else {
+        console.log('Data updated successfully:', results);
+      }
+    });
+  });
+};
+
+
+// NonS_Chance Table Update Function
+const updateDataIntoNonSChance = (data) => {
+  const updateSql = 'UPDATE NonS_Chance SET `profit_chance` = ?, `prof_per_run` = ? WHERE `floor_chest` = ?';
+
+  data.forEach((rowData) => {
+    const floor_chest = rowData['Floor/Chest '].trim();
+    const profit_chance = parseFloat(rowData['Profit Chance '] || 0).toFixed(2);
+    const prof_per_run = parseFloat(rowData['PPR '] || 0).toFixed(2);
+
+    console.log('Updating data:', { floor_chest, profit_chance, prof_per_run });
+
+    connection.query(updateSql, [profit_chance, prof_per_run, floor_chest], (err, results) => {
+      if (err) {
+        console.error('Error updating data:', err);
+      } else {
+        console.log('Data updated successfully:', results);
+      }
+    });
+  });
+};
+
+
+// NonS Table Update Function
+const updateDataIntoFloorNonS = (data) => {
+  const updateSql = 'UPDATE NonS SET `floor_item` = ?, `item_drop_chance` = ?, `item_cost` = ?, `market_val` = ?, `profit` = ? WHERE `floor_chest` = ?';
+
+  data.forEach((rowData) => {
+    const floor_chest = rowData['Floor/Chest '].trim();
+    const floor_item = rowData['Drop '].trim();
+    const item_drop_chance = parseFloat(rowData['Odds in % (not S+) ']).toFixed(2);
+    const item_cost = parseFloat(rowData['Cost from Chest ']).toFixed(2);
+    const market_val = parseFloat(rowData['Market Value ']).toFixed(2);
+    const profit = parseFloat(rowData['Profit/Loss ']).toFixed(2);
+
+    console.log('Updating data:', { floor_chest, floor_item, item_drop_chance, item_cost, market_val, profit });
+
+    connection.query(updateSql, [floor_item, item_drop_chance, item_cost, market_val, profit, floor_chest], (err, results) => {
+      if (err) {
+        console.error('Error updating data:', err);
+      } else {
+        console.log('Data updated successfully:', results);
+      }
+    });
+  });
+};
+
+
+// Floors Table Update Function
+const updateDataIntoFloorS = (data) => {
+  const updateSql = 'UPDATE S SET `floor_item` = ?, `item_drop_chance` = ?, `item_cost` = ?, `market_val` = ?, `profit` = ? WHERE `floor_chest` = ?';
+
+  data.forEach((rowData) => {
+    const floor_chest = rowData['Floor/Chest '].trim();
+    const floor_item = rowData['Drop '].trim();
+    const item_drop_chance = parseFloat(rowData['Odds in % (S+) ']).toFixed(2);
+    const item_cost = parseFloat(rowData['Cost from Chest ']).toFixed(2);
+    const market_val = parseFloat(rowData['Market Value ']).toFixed(2);
+    const profit = parseFloat(rowData['Profit/Loss ']).toFixed(2);
+
+    console.log('Updating data:', { floor_chest, floor_item, item_drop_chance, item_cost, market_val, profit });
+
+    connection.query(updateSql, [floor_item, item_drop_chance, item_cost, market_val, profit, floor_chest], (err, results) => {
+      if (err) {
+        console.error('Error updating data:', err);
+      } else {
+        console.log('Data updated successfully:', results);
+      }
+    });
+  });
+};
+
+// Floor Diff Table Update Function
+const updateDataIntoFloorDiff = (data) => {
+  const updateSql = 'UPDATE floordiff SET `floor_item` = ?, `item_drop_chance` = ?, `item_cost` = ?, `market_val` = ?, `profit` = ? WHERE `floor_chest` = ?';
+
+  data.forEach((rowData) => {
+    const floor_chest = rowData.hasOwnProperty('Floor/Chest ') ? rowData['Floor/Chest '].trim() : '';
+    const floor_item = rowData.hasOwnProperty('Drop ') ? rowData['Drop '].trim() : '';
+    const item_drop_chance = parseFloat(rowData['Odds in % (S+) '] || 0).toFixed(2);
+    const item_cost = parseFloat(rowData['Cost from Chest '] || 0).toFixed(2);
+    const market_val = parseFloat(rowData['Market Value '] || 0).toFixed(2);
+    const profit = parseFloat(rowData['Profit/Loss '] || 0).toFixed(2);
+
+    console.log('Updating data:', { floor_chest, floor_item, item_drop_chance, item_cost, market_val, profit });
+
+    connection.query(updateSql, [floor_item, item_drop_chance, item_cost, market_val, profit, floor_chest], (err, results) => {
+      if (err) {
+        console.error('Error updating data:', err);
+      } else {
+        console.log('Data updated successfully:', results);
+      }
+    });
+  });
+};
+
+
+
+
 
 // Function to update items table data periodically
-const updateItemsDataPeriodically = () => {
+const updateItemsData = () => {
   getSheetData({
     sheetID: '1hoRe8GxnnNuZj6TFbxPvTzitEPY9zOizYR_U5L9dHi8',
     sheetName: 'Bazaar Shit',
@@ -111,5 +231,77 @@ const updateItemsDataPeriodically = () => {
   });
 };
 
+
+// Function to update items table data periodically
+const updateSChanceData = () => {
+  getSheetData({
+    sheetID: '1hoRe8GxnnNuZj6TFbxPvTzitEPY9zOizYR_U5L9dHi8',
+    sheetName: 'Profit/Floor',
+    query: 'SELECT I, J, K WHERE I IS NOT NULL', // Modify this query according to your needs
+    callback: (data) => {
+      updateDataIntoSChance(data.slice(0)); // Specify the table update function here
+    },
+  });
+};
+
+
+// Function to update items table data periodically
+const updateNonSChanceData = () => {
+  getSheetData({
+    sheetID: '1hoRe8GxnnNuZj6TFbxPvTzitEPY9zOizYR_U5L9dHi8',
+    sheetName: 'Profit/Floor',
+    query: 'SELECT A, B, C WHERE A IS NOT NULL', // Modify this query according to your needs
+    callback: (data) => {
+      updateDataIntoNonSChance(data.slice(0)); // Specify the table update function here
+    },
+  });
+};
+
+
+// Function to update items table data periodically
+const updateFloorNonSData = () => {
+  getSheetData({
+    sheetID: '1hoRe8GxnnNuZj6TFbxPvTzitEPY9zOizYR_U5L9dHi8',
+    sheetName: 'Non-S+',
+    query: 'SELECT C, D, E, F WHERE A IS NOT NULL', // Modify this query according to your needs
+    callback: (data) => {
+      updateDataIntoFloorNonS(data.slice(0)); // Specify the table update function here
+    },
+  });
+};
+
+
+// Function to update items table data periodically
+const updateFloorSData = () => {
+  getSheetData({
+    sheetID: '1hoRe8GxnnNuZj6TFbxPvTzitEPY9zOizYR_U5L9dHi8',
+    sheetName: 'S+',
+    query: 'SELECT B, C, D, E, F WHERE A IS NOT NULL', // Modify this query according to your needs
+    callback: (data) => {
+      updateDataIntoFloorS(data.slice(0)); // Specify the table update function here
+    },
+  });
+};
+
+
+// Function to update items table data periodically
+const updateFloorDiffData = () => {
+  getSheetData({
+    sheetID: '1hoRe8GxnnNuZj6TFbxPvTzitEPY9zOizYR_U5L9dHi8',
+    sheetName: 'S+',
+    query: 'SELECT B, C, D, E, F WHERE G IS NOT NULL', // Modify this query according to your needs
+    callback: (data) => {
+      updateDataIntoFloorDiff(data.slice(0)); // Specify the table update function here
+    },
+  });
+};
+
+
 const updateInterval = 6.5 * 60 * 1000; // 6.5 minutes
-setInterval(updateItemsDataPeriodically, updateInterval);
+setInterval(updateItemsData, updateInterval);
+setInterval(updateSChanceData, updateInterval);
+setInterval(updateNonSChanceData, updateInterval);
+setInterval(updateFloorNonSData, updateInterval);
+setInterval(updateFloorSData, updateInterval);
+setInterval(updateFloorDiffData, updateInterval);
+

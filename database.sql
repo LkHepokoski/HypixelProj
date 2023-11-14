@@ -17,7 +17,6 @@ CREATE TABLE NonS_Chance(
 );
 
 CREATE TABLE NonS (
-    id INT AUTO_INCREMENT PRIMARY KEY,
     floor_chest VARCHAR(50),
     floor_item VARCHAR(50),
     item_drop_chance VARCHAR (50),
@@ -27,7 +26,6 @@ CREATE TABLE NonS (
 );
 
 CREATE TABLE S (
-    id INT AUTO_INCREMENT PRIMARY KEY,
     floor_chest VARCHAR(50),
     floor_item VARCHAR(50),
     item_drop_chance VARCHAR (50),
@@ -37,7 +35,6 @@ CREATE TABLE S (
 );
 
 CREATE TABLE floorDiff (
-    id INT AUTO_INCREMENT PRIMARY KEY,
     floor_chest VARCHAR(50),
     floor_item VARCHAR(50),
     item_drop_chance VARCHAR(50),
