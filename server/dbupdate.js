@@ -167,7 +167,7 @@ const updateDataIntoFloorNonS = (data) => {
 };
 
 
-// Floors Table Update Function
+// S Table Update Function
 const updateDataIntoFloorS = (data) => {
   const updateSql = 'UPDATE S SET `floor_item` = ?, `item_drop_chance` = ?, `item_cost` = ?, `market_val` = ?, `profit` = ? WHERE `floor_chest` = ?';
 
@@ -191,7 +191,7 @@ const updateDataIntoFloorS = (data) => {
   });
 };
 
-// Floor Diff Table Update Function
+// FloorDiff Table Update Function
 const updateDataIntoFloorDiff = (data) => {
   const updateSql = 'UPDATE floordiff SET `floor_item` = ?, `item_drop_chance` = ?, `item_cost` = ?, `market_val` = ?, `profit` = ? WHERE `floor_chest` = ?';
 
@@ -216,9 +216,6 @@ const updateDataIntoFloorDiff = (data) => {
 };
 
 
-
-
-
 // Function to update items table data periodically
 const updateItemsData = () => {
   getSheetData({
@@ -232,7 +229,7 @@ const updateItemsData = () => {
 };
 
 
-// Function to update items table data periodically
+// Function to update s_chance table data periodically
 const updateSChanceData = () => {
   getSheetData({
     sheetID: '1hoRe8GxnnNuZj6TFbxPvTzitEPY9zOizYR_U5L9dHi8',
@@ -245,7 +242,7 @@ const updateSChanceData = () => {
 };
 
 
-// Function to update items table data periodically
+// Function to update nons_chance table data periodically
 const updateNonSChanceData = () => {
   getSheetData({
     sheetID: '1hoRe8GxnnNuZj6TFbxPvTzitEPY9zOizYR_U5L9dHi8',
@@ -258,7 +255,7 @@ const updateNonSChanceData = () => {
 };
 
 
-// Function to update items table data periodically
+// Function to update nons table data periodically
 const updateFloorNonSData = () => {
   getSheetData({
     sheetID: '1hoRe8GxnnNuZj6TFbxPvTzitEPY9zOizYR_U5L9dHi8',
@@ -271,7 +268,7 @@ const updateFloorNonSData = () => {
 };
 
 
-// Function to update items table data periodically
+// Function to update s table data periodically
 const updateFloorSData = () => {
   getSheetData({
     sheetID: '1hoRe8GxnnNuZj6TFbxPvTzitEPY9zOizYR_U5L9dHi8',
@@ -284,7 +281,7 @@ const updateFloorSData = () => {
 };
 
 
-// Function to update items table data periodically
+// Function to update floordiff table data periodically
 const updateFloorDiffData = () => {
   getSheetData({
     sheetID: '1hoRe8GxnnNuZj6TFbxPvTzitEPY9zOizYR_U5L9dHi8',
