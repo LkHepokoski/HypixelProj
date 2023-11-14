@@ -82,7 +82,7 @@ const insertDataIntoSChance = (data) => {
 
   data.forEach((rowData) => {
     // Extract data using the correct column names with spaces
-    const floor_chest = rowData['S+ Floor/Chest '].trim();
+    const floor_chest = rowData['Floor/Chest '].trim();
     const profit_chance = parseFloat(rowData['Profit Chance ']).toFixed(2); // Round to two decimal places
     const prof_per_run = parseFloat(rowData['PPR ']).toFixed(2); // Round to two decimal places
 
@@ -105,7 +105,7 @@ const insertDataIntoNonSChance = (data) => {
 
   data.forEach((rowData) => {
     // Extract data using the correct column names with spaces
-    const floor_chest = rowData['Non S+ Floor/Chest '].trim();
+    const floor_chest = rowData['Floor/Chest '].trim();
     const profit_chance = parseFloat(rowData['Profit Chance ']).toFixed(2); // Round to two decimal places
     const prof_per_run = parseFloat(rowData['PPR ']).toFixed(2); // Round to two decimal places
 
@@ -275,3 +275,9 @@ getSheetData({
     insertDataIntoFloorDiff(data.slice(0));
     },
   });
+
+
+
+
+
+

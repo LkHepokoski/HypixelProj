@@ -48,7 +48,7 @@ const Floors = () => {
       <div className="table-container">
         <div className="tablenons-column">
           <table id="floordiffs-table">
-            <caption>Non-S</caption> 
+            <caption style={{ textAlign: "center", color: "white" }}>Non-S</caption> 
             <thead>
               <tr>
                 <th>Floor/Chest</th>
@@ -69,7 +69,7 @@ const Floors = () => {
         </div>
         <div className="table-column">
           <table id="floordiffnons-table"> 
-            <caption>S+</caption> 
+            <caption style={{ textAlign: "center", color: "white" }}>S+</caption> 
             <thead>
               <tr>
                 <th>Floor/Chest</th>
