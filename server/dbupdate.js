@@ -297,7 +297,7 @@ const updateFloorDiffData = () => {
 };
 
 // Set intervals to periodically update table data
-const updateInterval = 10 * 1000; // 6.5 minutes
+const updateInterval = 6.5 * 60 * 1000; // 6.5 minutes
 setInterval(updateItemsData, updateInterval);
 setInterval(updateSChanceData, updateInterval);
 setInterval(updateNonSChanceData, updateInterval);
