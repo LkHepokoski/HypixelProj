@@ -21,30 +21,27 @@ connection.connect((err) => {
 // Define getSheetData function here
 const getSheetData = ({ sheetID, sheetName, query, callback }) => {
   const base = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?`;
-  const url = `${base}&sheet=${encodeURIComponent(
-    sheetName
-  )}&tq=${encodeURIComponent(query)}`;
+  const url = `${base}&sheet=${encodeURIComponent(sheetName)}&tq=${encodeURIComponent(query)}`;
 
   //console.log('Fetching data from:', url); // Debug statement
 
   fetch(url)
     .then((res) => res.text())
     .then((response) => {
-    //  console.log('Received response from Google Sheets API:'); // Debug statement
-    //  console.log(response); // Debug statement
+      //  console.log('Received response from Google Sheets API:'); // Debug statement
+      //  console.log(response); // Debug statement
 
       callback(responseToObjects(response));
     })
     .catch((error) => {
       console.error('Error fetching data:', error); // Debug statement
     });
-
 };
 
 function responseToObjects(res) {
-// Debug statement
- // console.log('Parsing Google Sheets response:');
- // console.log(res);
+  // Debug statement
+  // console.log('Parsing Google Sheets response:');
+  // console.log(res);
 
   // credit to Laurence Svekis https://www.udemy.com/course/sheet-data-ajax/
   const jsData = JSON.parse(res.substring(47).slice(0, -2));
@@ -75,7 +72,6 @@ function responseToObjects(res) {
   return data;
 }
 
-
 // S Table Insert Function
 const insertDataIntoSChance = (data) => {
   const sql = 'INSERT INTO S_Chance (`floor_chest`, `profit_chance`, `prof_per_run`) VALUES (?, ?, ?)';
@@ -97,7 +93,6 @@ const insertDataIntoSChance = (data) => {
     });
   });
 };
-
 
 // NonS Table Insert Function
 const insertDataIntoNonSChance = (data) => {
@@ -154,7 +149,7 @@ const insertDataIntoFloorNonS = (data) => {
     const market_val = parseFloat(rowData['Market Value ']).toFixed(2);
     const profit = parseFloat(rowData['Profit/Loss ']).toFixed(2);
 
-    connection.query(sql, [floor_chest,floor_item, item_drop_chance, item_cost, market_val, profit], (err, results) => {
+    connection.query(sql, [floor_chest, floor_item, item_drop_chance, item_cost, market_val, profit], (err, results) => {
       if (err) {
         console.error('Error inserting data:', err);
       } else {
@@ -177,7 +172,7 @@ const insertDataIntoFloorDiff = (data) => {
     const market_val = parseFloat(rowData['Market Value '] || 0).toFixed(2);
     const profit = parseFloat(rowData['Profit/Loss '] || 0).toFixed(2);
 
-    connection.query(sql, [floor_chest,floor_item, item_drop_chance, item_cost, market_val, profit], (err, results) => {
+    connection.query(sql, [floor_chest, floor_item, item_drop_chance, item_cost, market_val, profit], (err, results) => {
       if (err) {
         console.error('Error inserting data:', err);
       } else {
@@ -186,7 +181,6 @@ const insertDataIntoFloorDiff = (data) => {
     });
   });
 };
-
 
 // Floors Table Insert Function
 const insertDataIntoFloorS = (data) => {
@@ -201,7 +195,7 @@ const insertDataIntoFloorS = (data) => {
     const market_val = parseFloat(rowData['Market Value ']).toFixed(2);
     const profit = parseFloat(rowData['Profit/Loss ']).toFixed(2);
 
-    connection.query(sql, [floor_chest,floor_item, item_drop_chance, item_cost, market_val, profit], (err, results) => {
+    connection.query(sql, [floor_chest, floor_item, item_drop_chance, item_cost, market_val, profit], (err, results) => {
       if (err) {
         console.error('Error inserting data:', err);
       } else {
@@ -211,17 +205,17 @@ const insertDataIntoFloorS = (data) => {
   });
 };
 
-  // Fetch data for S_Chance table and insert it into the database
-  getSheetData({
-    sheetID: '1hoRe8GxnnNuZj6TFbxPvTzitEPY9zOizYR_U5L9dHi8',
-    sheetName: 'Profit/Floor',
-    query: 'SELECT I, J, K WHERE I IS NOT NULL', // Modify this query according to your needs
-    callback: (data) => {
-      insertDataIntoSChance(data.slice(0)); // Specify the table insertion function here
-    },
-  });
+// Fetch data for S_Chance table and insert it into the database
+getSheetData({
+  sheetID: '1hoRe8GxnnNuZj6TFbxPvTzitEPY9zOizYR_U5L9dHi8',
+  sheetName: 'Profit/Floor',
+  query: 'SELECT I, J, K WHERE I IS NOT NULL', // Modify this query according to your needs
+  callback: (data) => {
+    insertDataIntoSChance(data.slice(0)); // Specify the table insertion function here
+  },
+});
 
-  // Fetch data for NonS_Chance Table and insert it into the database
+// Fetch data for NonS_Chance Table and insert it into the database
 getSheetData({
   sheetID: '1hoRe8GxnnNuZj6TFbxPvTzitEPY9zOizYR_U5L9dHi8',
   sheetName: 'Profit/Floor',
@@ -231,7 +225,6 @@ getSheetData({
   },
 });
 
-
 // Fetch data for Items table and insert it into the database
 getSheetData({
   sheetID: '1hoRe8GxnnNuZj6TFbxPvTzitEPY9zOizYR_U5L9dHi8',
@@ -239,9 +232,8 @@ getSheetData({
   query: 'SELECT A, B, C WHERE A IS NOT NULL', // Modify this query according to your needs
   callback: (data) => {
     insertDataIntoItems(data.slice(0)); // Specify the table insertion function here
-    },
-  });
-
+  },
+});
 
 // Fetch data for Non-S+ table and insert it into the database
 getSheetData({
@@ -250,21 +242,18 @@ getSheetData({
   query: 'SELECT A, B, C, D, E, F WHERE A IS NOT NULL', // Modify this query according to your needs
   callback: (data) => {
     insertDataIntoFloorNonS(data.slice(0)); // Specify the table insertion function here
-    },
-  });
+  },
+});
 
-
-  // Fetch data for S+ table and insert it into the database
+// Fetch data for S+ table and insert it into the database
 getSheetData({
   sheetID: '1hoRe8GxnnNuZj6TFbxPvTzitEPY9zOizYR_U5L9dHi8',
   sheetName: 'S+',
   query: 'SELECT A, B, C, D, E, F WHERE A IS NOT NULL', // Modify this query according to your needs
   callback: (data) => {
     insertDataIntoFloorS(data.slice(0)); // Specify the table insertion function here
-    },
-  });
-
-
+  },
+});
 
 // Fetch data for Floor Diff table and insert it into the database
 getSheetData({
@@ -273,11 +262,5 @@ getSheetData({
   query: 'SELECT A, B, C, D, E, F WHERE G IS NOT NULL', // Modify this query according to your needs
   callback: (data) => {
     insertDataIntoFloorDiff(data.slice(0));
-    },
-  });
-
-
-
-
-
-
+  },
+});

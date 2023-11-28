@@ -76,6 +76,7 @@ function responseToObjects(res) {
 }
 
 
+// Define functions to update different MySQL tables with data
 
 // Items Table Update Function
 const updateDataIntoItems = (data) => {
@@ -216,6 +217,8 @@ const updateDataIntoFloorDiff = (data) => {
 };
 
 
+// Define functions to periodically update table data
+
 // Function to update items table data periodically
 const updateItemsData = () => {
   getSheetData({
@@ -293,8 +296,8 @@ const updateFloorDiffData = () => {
   });
 };
 
-
-const updateInterval = 6.5 * 60 * 1000; // 6.5 minutes
+// Set intervals to periodically update table data
+const updateInterval = 10 * 1000; // 6.5 minutes
 setInterval(updateItemsData, updateInterval);
 setInterval(updateSChanceData, updateInterval);
 setInterval(updateNonSChanceData, updateInterval);

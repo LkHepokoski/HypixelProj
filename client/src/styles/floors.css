@@ -1,3 +1,17 @@
+.floorsection-header {
+    text-align: center;
+  }
+  
+.floorsection-header h1 {
+    text-decoration: underline 4px limegreen;
+    text-underline-position: under;
+    color: rgba(255, 255, 255, 0.881);
+}
+
+.floorsection-header b {
+    color: rgba(255, 255, 255, 0.881);
+}
+
 .table-container  {
     display: flex;
     justify-content: center; /* Adjust as needed */

@@ -25,7 +25,7 @@ const Items = () => {
 
   
   return (
-    <div>
+    <div className="itemsection-header">
       <h1 style={{ textAlign: "center", color: "white" }}>Items</h1>
       <table id="data-table">
         <thead>
@@ -36,7 +36,7 @@ const Items = () => {
           </tr> 
         </thead>
         <tbody>
-          {items.map((item, index) => ( // Map over the "items" array and display data in rows
+          {items.map((item, index) => (
             <tr key={index}>
               <td>{item.item_name}</td>
               <td>{item.buy_price}</td>

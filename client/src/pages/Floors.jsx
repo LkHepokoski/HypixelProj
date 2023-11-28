@@ -37,13 +37,13 @@ const Floors = () => {
 
   
   return (
-    <div>
-      <h1 style={{ textAlign: "center", color: "white" }}>Floors</h1> 
-      <div style={{ textAlign: "center", color: "white" }}>
+    <div className="floorsection-header">
+      <h1>Floors</h1>
+      <div>
         <b>
           This website was designed to be used by Hypixel Skyblock players for their
           dungeon runs in Floors 1-7 (Master Mode not implemented yet).
-        </b> 
+        </b>
       </div>
       <div className="table-container">
         <div className="tablenons-column">
