@@ -1,0 +1,48 @@
+.itemsection-header {
+  text-align: center;
+}
+
+.itemsection-header h1 {
+  text-decoration: underline 4px limegreen;
+  text-underline-position: under;
+}
+
+/* Style for the data table */
+#data-table {
+  width: 70%; /* Adjust the width to your preference */
+  margin: 20px auto; /* Center the table horizontally */
+  border: 1px solid rgba(0, 0, 0, 0.2); /* Add a subtle border */
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.8); /* Add transparency to the table */
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  overflow: hidden; /* Hide table content that exceeds the container */
+}
+
+#data-table th {
+  background-color: #333;
+  color: white;
+  padding: 12px;
+  text-align: center;
+}
+
+#data-table th,
+#data-table td {
+  border: 1px solid rgba(0, 0, 0, 0.2); /* Add a subtle border for cells */
+  padding: 10px;
+  text-align: left;
+}
+
+#data-table tr:nth-child(even) {
+  background-color: #f2f2f2; /* Alternate row background color for readability */
+}
+
+#data-table td {
+  vertical-align: middle; /* Center the content vertically */
+}
+
+/* Hover effect on table rows */
+#data-table tbody tr:hover {
+  background-color: #e0e0e0; /* Change the background color on hover */
+}
+
+/* Additional styles can be added as needed */

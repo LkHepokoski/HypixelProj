@@ -1,0 +1,65 @@
+.floorsection-header {
+    text-align: center;
+  }
+  
+.floorsection-header h1 {
+    text-decoration: underline 4px limegreen;
+    text-underline-position: under;
+    color: rgba(255, 255, 255, 0.881);
+}
+
+.floorsection-header b {
+    color: rgba(255, 255, 255, 0.881);
+}
+
+.table-container  {
+    display: flex;
+    justify-content: center; /* Adjust as needed */
+    align-items: flex-start;
+    border: none;
+    padding: 0px;
+    border-width: thin;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+ 
+  /* Style the tables  */
+  #floordiffnons-table,
+  #floordiffs-table{
+      border-collapse: collapse;
+      width: 25%; /* Adjust the width as needed for each table */
+      margin-top: 20px;
+      border: 1px solid rgba(0, 0, 0, 0.2); /* Add a subtle border */
+      background-color: rgba(255, 255, 255, 0.8); /* Add transparency to the table */
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  }
+
+
+
+
+  #floordiffnons-table tbody tr:hover,
+  #floordiffs-table tbody tr:hover {
+    background-color: #f2f2f2; /* Alternate row background color for readability */
+  }
+  
+  
+  #floordiffnons-table th,
+  #floordiffs-table th {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+  }
+  
+  #floordiffnons-table td,
+  #floordiffs-table td{
+      border: 1px solid #ccc;
+      padding: 8px;
+      width: 20%; /* Adjust the width as needed */
+      white-space: nowrap; /* Prevent text from wrapping */
+      overflow: hidden; /* Hide overflowing content */
+      text-overflow: ellipsis; /* Show ellipsis for long text */
+      text-align: center; /* Center text horizontally */
+  }
+  

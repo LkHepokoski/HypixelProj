@@ -1,34 +1,37 @@
-/* Set height of body and the document to 100% to enable "full page tabs" */
-body, html {
-    height: 100%;
-    margin: 0;
-    font-family: Arial;
+/* home.css */
+
+.home {
+    /* Add any overall styles for the home component */
+    text-align: center;
+    color: rgba(255, 255, 255, 0.91);
   }
   
-  /* Style tab links */
-  .tablink {
-    background-color: #2c2c2c;
-    color: rgb(255, 255, 255);
-    float: none; /* Remove the float property */
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 234px;
-    font-size: 17px;
-    width: 100%; /* Set the width to 100% to fill the container */
-    text-align: center; /* Center the text horizontally */
-    box-sizing: content-box; /* Ensure padding and border don't affect width */
+  .home-overlay {
+    background-color: rgba(0, 0, 0, 0.7); /* Adjust the alpha value for transparency */
+    padding: 20px;
+    border-radius: 0px;
+    width:fit-content;
+    position:absolute;
+    top:43%;
+    left:50%;
+    transform:translate(-50%, -50%);
   }
   
-  .tablink:hover {
-    background-color: #747474e7;
+  .intro-paragraph,
+  .feature-paragraph {
+    color: rgba(255, 255, 255, 0.91);
   }
   
-  /* Style the tab content (and add height:100% for full page content) */
-  .tabcontent {
-    color: white;
-    display: none;
-    padding: 100px 20px;
-    height: 100%;
+  .feature-paragraph {
+    color: rgba(255, 255, 255, 0.91);
+    line-height: 1.6;
+    /* Add any other styles as needed */
   }
-  
+
+  .home h1 {     
+    text-decoration: underline 4px limegreen;
+    text-underline-position: under; 
+}
+.feature-paragraph{
+    text-align: left;
+}
